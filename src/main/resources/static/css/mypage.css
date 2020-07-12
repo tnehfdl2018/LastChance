@@ -1,0 +1,333 @@
+/* new myPage */
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    word-break: break-all;
+}
+
+body, th, td, input, select, textarea, button {
+    color: #2a2a2a;
+    font-family: 'HelveticaNeue','AppleSDGothicNeo-Regular','GulimmGothic','MalgunGothic','맑은고딕',sans-serif;
+}
+
+body {
+    background: #fff;
+    font-size: 13px;
+    letter-spacing: -1px;
+}
+
+div {
+    display: inline;
+}
+
+element.style {
+    width: 226px;
+}
+
+h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+
+input[type="button" i] {
+    -webkit-appearance: push-button;
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: buttontext;
+    background-color: buttonface;
+    box-sizing: border-box;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+}
+
+input[type="password" i] {
+    -webkit-text-security: disc !important;
+}
+
+input, select, textarea, button {
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+/* table { */
+/*     border-collapse: collapse; */
+/*     border-spacing: 0; */
+/* } */
+
+table {
+    border-collapse: separate;
+    border-spacing: 2px;
+    margin-left: 15%;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+    border: 1px solid #ebebeb;
+}
+
+
+
+td {
+    display: inline;
+    vertical-align: inherit;
+}
+
+.btn_basic:hover {
+    background: #eee;
+}
+
+.btn_basic {
+    display: inline-block;
+    width: 95px;
+    padding: 7px 0;
+    background: #fff;
+    border: 1px solid #cfcfcf;
+    text-align: center;
+}
+
+.btn_sm {
+    padding: 6px 0;
+    font-size: 12px;
+}
+
+.right_cm {
+    position: relative;
+    width: 814px;
+    min-height: 640px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+/*     border: 1px solid #000; */
+    margin-left: 30%;
+}
+
+.right_cm h4 {
+    position: relative;
+    height: 73px;
+    padding: 12px 0 0 69px;
+    border-bottom: 1px solid #ebebeb;
+    font-size: 24px;
+}
+
+.cl2a2a2a {
+    color: #2a2a2a !important;
+}
+
+.fs13 {
+/* 	position : absolute; */
+	
+    font-size: 13px !important;
+}
+
+.fs14 {
+/* 	justify-content: center; */
+	position:relative;
+    font-size: 14px !important;
+}
+
+.i_tit_mydata {
+    position: absolute;
+    top: 18px;
+    left: 36px;
+    width: 24px;
+    height: 24px;
+    background-position: -40px -241px;
+}
+
+.i_tit_mydata {
+    position: absolute;
+    top: 18px;
+    left: 36px;
+    width: 24px;
+    height: 24px;
+    background-position: -40px -241px;
+}
+
+.ico {
+    display: inline-block;
+/*     background: url(https://pic.popkontv.com/images/www/images/popkon/ico_community.png) no-repeat; */
+    vertical-align: top;
+}
+
+.t_input {
+    display: inline-block;
+    width: 100%;
+    padding: 0 5px;
+    height: 28px;
+    border: 1px solid #cfcfcf;
+    background: #f4f6fb;
+}
+
+.table_edit td {
+    height: 37px;
+    padding: 4px 12px;
+    border-bottom: 1px solid #cfcfcf;
+    vertical-align: middle;
+}
+
+.table_edit th {
+    height: 37px;
+    padding: 0 20px;
+    border-bottom: 1px solid #cfcfcf;
+    background: #f5f5f5;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.table_title {
+    color: #e86752;
+    font-size: 16px;
+}
+
+.table_wrap {
+    position: relative;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.tac {
+    text-align: center !important;
+}
+
+.mB10 {
+    margin-bottom: 10px !important;
+    text-align: center;
+}
+
+.mL10 {
+    margin-left: 10px !important;
+}
+
+.mL20 {
+    margin-left: 20px !important;
+}
+
+.mR10 {
+    margin-right: 10px !important;
+}
+
+
+.mT25 {
+    margin-top: 25px !important;
+}
+
+.mT30 {
+    margin-top: 30px !important;
+}
+
+
+::selection {
+    background-color: #FFC81F;
+}
+
+
+
+/* address page */
+
+
+.postForm {
+	margin-top: 50px;
+	text-align: center;
+	
+}
+
+.post_num {
+	width: 40%;
+}
+
+.post_num_btn, .btn {
+	border-radius: 15px;
+	height: 40px;
+	width: 30%;
+	margin-bottom: 10px;
+	
+}
+
+.btn {
+	align-content: center;
+}
+
+.inputs {
+	border-radius: 15px;
+	height: 40px;
+	margin-bottom: 10px;
+}
+
+.input100 {
+	width: 70%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

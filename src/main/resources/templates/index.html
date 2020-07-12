@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>로그인 페이지</title>
+
+  <!--captcha v3-->
+  <!--<script src="https://www.google.com/recaptcha/api.js"></script>
+  <script>
+    function onSubmit(token) {
+      document.getElementById("#limiter").submit();
+    }
+  </script>-->
+
+  <!--captcha v2-->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!--===============================================================================================-->
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="css/util2.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="css/main2.css">
+  <!--===============================================================================================-->
+  <script>
+    $(function () {
+      $("#login").attr('disabled', true);
+    });
+
+    /*reCaptcha*/
+    function validReCaptcha() {
+      let response = grecaptcha.getResponse();
+
+      if (response.length == 0)
+        alert('reCaptcha Fail')
+      else
+        console.log("성공");
+        $("#login").attr('disabled', false);
+    }
+
+
+    $(document).on("click", "#login", function () {
+     let obj = {
+       id: $("#memberId"),
+       pw: $("#memberPw")
+     }
+
+      $.ajax({
+        type: "post",
+        url: "login",
+        data: obj,
+        success: function (data) {
+          alert("로그인 성공");
+        },
+        error: function (data) {
+          alert("로그인 실패");
+        }
+      });
+    });
+
+  </script>
+</head>
+<body>
+  <div class="limiter" id="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <!--<form class="login100-form validate-form" action="login" method="post">-->
+          <span class="login100-form-title">
+              Member Login
+            </span>
+
+          <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+            <input class="input100" type="text" name="memberId" id="memberId" placeholder="Id">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </span>
+          </div>
+
+          <div class="wrap-input100 validate-input" data-validate="Password is required">
+            <input class="input100" type="password" name="memberPw" id="memberPw" placeholder="Password">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+              </span>
+          </div>
+
+          <!--reCaptcha v3-->
+          <!--<button class="g-recaptcha"
+                  data-sitekey="6Lf_T64ZAAAAAGAoM9KMMjRIn1BigUr2d02_B9yw"
+                  data-callback='onSubmit'
+                  data-action='submit'>Submit</button>-->
+
+          <!--reCaptcha v2-->
+          <form method="post" action="reCaptcha" onsubmit="validReCaptcha()">
+            <div class="g-recaptcha" data-sitekey="6LcTUa4ZAAAAANJCp0fgsysI48Z3ZvTaTbCVfnx7" style="margin-left: 20px"></div>
+            <input type="submit" value="Vaildate">
+          </form>
+          <br/>
+          <div class="container-login100-form-btn">
+            <button class="login100-form-btn" id="login">LogIn</button>
+            <!--<input type="button" class="login100-form-btn" id="login" value="LogIn">-->
+          </div>
+
+          <div class="text-center p-t-12">
+              <span class="txt1">
+                Forgot
+              </span>
+            <a class="txt2" href="#">
+              Username / Password?
+            </a>
+          </div>
+
+          <div class="text-center p-t-136">
+            <a class="txt2" href="goJoin">
+              Create your Account
+              <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+            </a>
+          </div>
+        <!--</form>-->
+      </div>
+    </div>
+  </div>
+</body>
+</html>

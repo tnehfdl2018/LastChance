@@ -1,0 +1,137 @@
+.imgTd {
+	size: 15px;
+	width: 15px;
+	height: 15px;
+}
+
+#btn1 {
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	 /* margin-right:-4px; */
+	 margin-top: 10%;
+	 margin-bottom: 5%;
+	 margin-left: 10%;
+	 margin-right: 10%;
+	 color: pink;
+	 width: 50%;
+}
+			
+#btn2 {
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	/* margin-left:-3px; */
+	 margin-top: 5%;
+	 margin-bottom: 10%;
+	 margin-left: 10%;
+	 margin-right: 10%;
+	 width: 50%;
+}
+
+#btn_group button {
+	border: 1px solid skyblue;
+	background-color: rgba(0,0,0,0);
+	color: skyblue;
+	
+	
+}
+
+h2 {
+	 text-align: center;
+	 padding-top: 5%;
+}
+
+/* --------------------------------------------------------------------- */
+.btn{
+	height: 100px; 
+    width: 100px; 
+    margin: -20px -50px; 
+    position: relative;
+    top: 50%; 
+    left: 15%;
+    margin: 0 auto;
+}
+
+.thead{
+	border:2px solid #000;
+}
+
+.type04 {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;    
+    border-bottom: 1px solid #ccc;
+  	margin : 20px 10px;  	
+  	padding-bottom: 5%;
+}
+.type04 th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    
+}
+.type04 td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: middle;
+    border-bottom: 1px solid #ccc;
+    text-align: center;	
+}
+
+.btns{
+	margin: 5px;
+	border: 1px solid pink;
+	background-color: rgba(0,0,0,0);
+	color: pink;
+}
+
+.top {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	width: 40%;
+	height: 50px;
+	margin: auto;
+}
+
+.top_btns{
+	display: inline;
+	padding-left: 9%;
+}
+
+.addForm{
+	align-content: center;
+	margin-top:4%;
+	margin-left:30%;
+	margin-right:30%;
+	margin-bottom:6%;
+
+}
+
+.addDiv {
+	background: skyblue;
+	text-align: center;
+	align-items: center;
+	border: 1px solid #000;	
+}
+
+.addTable {
+	align-content: center;
+	width: 100%;
+}
+
+.addInput {
+	width: 100%;
+}
+
+
+
+/* --------------------------------------------------------------------- */

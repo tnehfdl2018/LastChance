@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.soobineey.demo.dao.MainDao">
+
+  <!--회원가입-->
+  <insert id="insertMember" parameterType="MainDto">
+    INSERT INTO MEMBER (MEMBER_ID, MEMBER_PW, MEMBER_EMAIL, MEMBER_REG_DATE) VALUES (#{memberId}, #{memberPw}, #{memberEmail}, #{memberJoinDate})
+  </insert>
+
+  <!--로그인-->
+  <select id="selectMember" parameterType="MainDto" resultType="MainDto">
+    SELECT MEMBER_ID FROM MEMBER
+    WHERE
+        MEMBER_ID = #{memberId} AND MEMBER_PW = #{memberPw}
+  </select>
+
+  <!--인증코드 저장-->
+  <insert id="insertAuthCode" parameterType="MainDto">
+    INSERT INTO AUTH_CODE (EMAIL, auth_code, CODE_REG_TIME) VALUES (#{memberEmail}, #{authCode}, #{codeRegTime})
+  </insert>
+
+  <!--인증코드 확인-->
+  <select id="selectAuthCode" parameterType="MainDto" resultType="MainDto">
+    SELECT auth_code, CODE_REG_TIME FROM AUTH_CODE
+    WHERE EMAIL = #{memberEmail}
+  </select>
+
+  <!--<select id="selectAuthCode" parameterType="MainDto" resultType="MainDto">
+    SELECT CODE_REG_TIME FROM AUTH_CODE
+    WHERE EMAIL = #{memberEmail}
+  </select>-->
+
+
+
+</mapper>
