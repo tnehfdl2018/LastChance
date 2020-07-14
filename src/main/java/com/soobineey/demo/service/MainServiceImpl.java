@@ -25,6 +25,6 @@ public class MainServiceImpl implements MainService {
   public MainDto selectMember(MainDto dto) {
     System.out.println("Pass selectMember in MainServiceImpl");
 
-    return dao.selectAuthCode(dto);
+    return dao.selectMember(dto);
   }
 }

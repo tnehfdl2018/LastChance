@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import java.util.HashMap;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -50,17 +52,14 @@ public class MailServiceImpl implements MailService {
   @Override
   public int insertAuthCode(MainDto dto) {
     System.out.println("Pass insertAuthCode in MailServiceImpl");
-    System.out.println(dto.getAuthCode());
     return dao.insertAuthCode(dto);
   }
 
   @Override
-  public MainDto selectAuthCode(MainDto dto) {
+  public List<MainDto> selectAuthCode(MainDto dto) {
     System.out.println("Pass selectAuthCode in MailServiceImpl");
-    System.out.println("XUXUXXKAKAKSAKDJASKDJAKS");
-    System.out.println(dto.getMemberEmail());
-    System.out.println(dto.getCodeRegTime());
+    List<MainDto> list = dao.selectAuthCode(dto);
 
-    return dao.selectAuthCode(dto);
+    return list;
   }
 }

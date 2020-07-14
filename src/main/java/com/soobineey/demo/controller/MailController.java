@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 @Controller
@@ -71,27 +72,25 @@ public class MailController {
     boolean timeLimit = false;
     dto.setMemberEmail(email);
 
-    mailService.selectAuthCode(dto);
+    List<MainDto> list = mailService.selectAuthCode(dto);
     long ckTime = System.currentTimeMillis();
 
-    System.out.print("Main? DTO : ");
-    System.out.println(System.identityHashCode(dto));
-    System.out.println("인증버튼 클릭");
-    System.out.println(ckTime);
-    System.out.println("인증코드 : " + dto.getAuthCode());
-    System.out.println("인증코드 등록 시간 : " + dto.getCodeRegTime());
-//    Date codeRegTimeFromDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(dto.getCodeRegTime());
-//
-//    long changCodeRegTimeFromDB = codeRegTimeFromDB.getTime();
+    dto.setAuthCode(list.get(0).getAuthCode());
+    dto.setCodeRegTime(list.get(0).getCodeRegTime());
 
-//    timeLimit = ckTime - changCodeRegTimeFromDB <= 60000 ? false : true;
+    Date codeRegTimeFromDB = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(dto.getCodeRegTime());
 
-//    if (authCode.equals(dto.getAuthCode()) && timeLimit) {
-    if (authCode.equals(dto.getAuthCode())) {
+    long changCodeRegTimeFromDB = codeRegTimeFromDB.getTime();
+
+    timeLimit = ckTime - changCodeRegTimeFromDB <= 60000 ? true : false;
+
+    if (authCode.equals(dto.getAuthCode()) && timeLimit) {
+//    if (authCode.equals(dto.getAuthCode())) {
       return new ResponseEntity<String>("complete", HttpStatus.OK);
+    } else if (!timeLimit){
+      return new ResponseEntity<String>("timeout", HttpStatus.OK);
     } else {
-      System.out.println("응 인증 실패~");
-      return new ResponseEntity<String>("false", HttpStatus.OK);
+      return new ResponseEntity<String>("fail", HttpStatus.OK);
     }
   }
 }

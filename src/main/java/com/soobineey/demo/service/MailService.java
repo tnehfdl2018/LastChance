@@ -13,7 +13,7 @@ public interface MailService {
   public int insertAuthCode(MainDto dto);
   
   // 인증코드 불러오기
-  public MainDto selectAuthCode(MainDto dto);
+  public List<MainDto> selectAuthCode(MainDto dto);
 }
 
 

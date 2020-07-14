@@ -3,6 +3,8 @@ package com.soobineey.demo.dao;
 import com.soobineey.demo.dto.MainDto;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface MainDao {
 
@@ -16,5 +18,5 @@ public interface MainDao {
   public int insertAuthCode(MainDto dto);
   
   // 인증코드 가져오기
-  public MainDto selectAuthCode(MainDto dto);
+  public List<MainDto> selectAuthCode(MainDto dto);
 }
