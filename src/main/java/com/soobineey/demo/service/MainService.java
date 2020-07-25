@@ -10,6 +10,8 @@ public interface MainService {
 
   public MainDto selectMember(MainDto dto);
 
+//  public boolean verifyRecaptcha(String response);
+
 
 
 }

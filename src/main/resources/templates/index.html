@@ -24,27 +24,62 @@
   <link rel="stylesheet" type="text/css" href="css/main2.css">
   <!--===============================================================================================-->
   <script>
-    $(function () {
+    /*$(function () {
       $("#login").attr('disabled', true);
     });
+*/
 
     /*reCaptcha*/
-    function validReCaptcha() {
+    /*function validReCaptcha() {
       let response = grecaptcha.getResponse();
+      console.log(response);
 
       if (response.length == 0)
         alert('reCaptcha Fail')
       else
         console.log("성공");
         $("#login").attr('disabled', false);
-    }
+    }*/
 
 
     $(document).on("click", "#login", function () {
-     let obj = {
-       id: $("#memberId"),
-       pw: $("#memberPw")
-     }
+      let response = grecaptcha.getResponse();
+
+      let sendToken = {
+        secret: "6LcTUa4ZAAAAAEOs4hOYluQfjoeDnIFGlbEfl0LM",
+        response: response
+      }
+
+
+      if (response.length != 0) {
+        $.ajax({
+          type: "post",
+          url: "https://www.google.com/recaptcha/api/siteverify",
+          data: sendToken,
+          success: function (data) {
+            console.log(data);
+
+            login();
+
+          },
+          error: function (data) {
+            alert("잘못된 요청 입니다.");
+            console.log("잘못된 요청 입니다.");
+          }
+        })
+      } else {
+        alert("니가 로봇이 아님을 증명 하라!");
+        console.log("니가 로봇이 아님을 증명 하라!");
+        return false;
+      }
+    });
+
+    function login() {
+
+      let obj = {
+        id: $("#memberId").val(),
+        pw: $("#memberPw").val()
+      }
 
       $.ajax({
         type: "post",
@@ -57,7 +92,31 @@
           alert("로그인 실패");
         }
       });
-    });
+
+
+    }
+
+  /*  $(document).on("click", "#login", function () {
+
+      let obj = {
+        id: $("#memberId").val(),
+        pw: $("#memberPw").val()
+      }
+      $.ajax({
+        type: "post",
+        url: "/login",
+        data: obj,
+        contentType: 'application/json',
+        success: function (data) {
+          console.log("로그인 성공");
+          alert("로그인 성공");
+        },
+        error: function (data) {
+          alert("로그인 실패");
+        }
+      });
+
+    });*/
 
   </script>
 </head>
@@ -66,6 +125,7 @@
     <div class="container-login100">
       <div class="wrap-login100">
         <!--<form class="login100-form validate-form" action="login" method="post">-->
+        <form class="login100-form validate-form">
           <span class="login100-form-title">
               Member Login
             </span>
@@ -93,10 +153,10 @@
                   data-action='submit'>Submit</button>-->
 
           <!--reCaptcha v2-->
-          <form method="post" action="reCaptcha" onsubmit="validReCaptcha()">
+          <!--<form method="post" action="#" onsubmit="validReCaptcha()">-->
             <div class="g-recaptcha" data-sitekey="6LcTUa4ZAAAAANJCp0fgsysI48Z3ZvTaTbCVfnx7" style="margin-left: 20px"></div>
-            <input type="submit" value="Vaildate">
-          </form>
+            <!--<input type="submit" value="버튼">
+          </form>-->
           <br/>
           <div class="container-login100-form-btn">
             <button class="login100-form-btn" id="login">LogIn</button>
@@ -118,7 +178,7 @@
               <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
             </a>
           </div>
-        <!--</form>-->
+        </form>
       </div>
     </div>
   </div>

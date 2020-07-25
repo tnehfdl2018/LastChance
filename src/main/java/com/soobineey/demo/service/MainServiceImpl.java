@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.net.URL;
+
 @Service
 @RequiredArgsConstructor
 @Component
@@ -27,4 +29,14 @@ public class MainServiceImpl implements MainService {
 
     return dao.selectMember(dto);
   }
+
+//  @Override
+//  public boolean verifyRecaptcha(String response) {
+//
+//    final String SECRET_KEY = "6LcTUa4ZAAAAAEOs4hOYluQfjoeDnIFGlbEfl0LM";
+//    final String RE_URL = "";
+//
+//    URL obj = new URL(R)
+//    return false;
+//  }
 }
